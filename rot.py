@@ -27,9 +27,9 @@ def player(table:list, name1:str, name2:str):
     players = (name1,name2)
     show(table)
     global n
-    answer = int (input("Ходит игрок "+ players[n]+ " : "))
     while True:
-        if answer in table and isinstance(answer, int):
+        answer = int (input("Ходит игрок "+ players[n]+ " : "))
+        if answer in table:
             if n == 0:
                 n += 1
                 table[answer - 1] = "x"
@@ -40,7 +40,6 @@ def player(table:list, name1:str, name2:str):
                 return table
         else: 
             print("Вы не можете так ходить! ") 
-            break
 
 def result(table:list):
     wins = [
@@ -101,7 +100,6 @@ elif a == 1:
         n = 0
         while True:
             player(table, name1, name2)
-            show(table)
             winner = result(table)
             if winner == "x":
                 show(table)
